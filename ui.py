@@ -1,6 +1,6 @@
 from book import Book
 
-
+#
 def display_menu_get_choice():
 
     '''Display choices for user, return users' selection'''
@@ -10,6 +10,7 @@ def display_menu_get_choice():
         2. Show books that have been read
         3. Mark a book as read
         4. Add book to wishlist
+        5. Rate a read book
         q. Quit
     ''')
 
