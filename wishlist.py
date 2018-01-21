@@ -17,7 +17,7 @@ def handle_choice(choice):
 
     elif choice == '4':
         new_book()
-        
+
     elif choice == '5':
         rate_book()
 
@@ -56,15 +56,18 @@ def new_book():
     ui.message('Book added: ' + str(new_book))
 
 
+def rate_book():
+    rate_book = ui.rate_a_book()
+    datastore.add_rate(rate_book)
+    ui.message('Rating added: ' + str(rate_book))
+
+
 def quit():
     '''Perform shutdown tasks'''
     datastore.shutdown()
     ui.message('Bye!')
 
-def rate_a_book():
-    rating = int(input("Rate the title: "))
-    score = rating.append(title)
-    return score
+
 
 def main():
 

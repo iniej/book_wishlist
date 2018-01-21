@@ -66,7 +66,6 @@ def get_books(**kwargs):
         return read_books
 
 
-
 def add_book(book):
     ''' Add to db, set id value, return Book'''
 
@@ -74,6 +73,12 @@ def add_book(book):
 
     book.id = generate_id()
     book_list.append(book)
+
+##
+def add_rate(book):
+
+    global book_list
+    book_rating = "rating"
 
 
 def generate_id():
@@ -118,7 +123,7 @@ def make_output_data():
     output_data = []
 
     for book in book_list:
-        output = [ book.title, book.author, str(book.read), str(book.id) ]
+        output = [ book.title, book.author, str(book.read), str(book.id), book.rating ]
         output_str = separator.join(output)
         output_data.append(output_str)
 
