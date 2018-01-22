@@ -64,6 +64,37 @@ def new_book():
     datastore.add_book(new_book)
     ui.message('Book added: ' + str(new_book))
 
+def sort_list():
+
+    '''sort the books'''
+    allBooks = datastore.get_books()
+    sortBooksByTitle = sorted(allBooks, key = lambda book: book.title)
+    sortbooksByAuthor = sorted(allBooks, key = lambda book: book.author)
+    sortBy = int(input('Enter 1 to sort by title and 2 to sort by auther: '))
+    while True:
+        if(sortBy == 1):
+            ui.show_list(sortBooksByTitle)
+            break
+        elif(sortBy == 2):
+            ui.show_list(sortbooksByAuthor)
+            break
+        else:
+            print('The entry was incorrect.')
+            sortBy = int(input('Enter the correct options: '))
+
+
+def search_list():
+    '''Search for a book'''
+    #search = str(input('Enter a title '))
+    all_search = datastore.get_books()
+
+    for book in all_search:
+        if(search == book.title):
+            ui.show_list(book)
+        else:
+            notFound = ('book not found.')
+            ui.show_list(notFound)
+
 
 
 
