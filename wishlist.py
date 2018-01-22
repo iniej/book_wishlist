@@ -1,5 +1,5 @@
 #Main program
-
+#test push
 import ui, datastore
 from book import Book
 
@@ -58,7 +58,6 @@ def book_read():
     else:
         ui.message('Book id not found in database')
 
-
 def new_book():
     '''Get info from user, add new book'''
     new_book = ui.get_new_book_info()
@@ -110,7 +109,6 @@ def quit():
     '''Perform shutdown tasks'''
     datastore.shutdown()
     ui.message('Bye!')
-
 
 
 def main():
