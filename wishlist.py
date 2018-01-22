@@ -4,6 +4,7 @@ import ui, datastore
 from book import Book
 
 
+
 def handle_choice(choice):
 
     if choice == '1':
@@ -17,9 +18,18 @@ def handle_choice(choice):
 
     elif choice == '4':
         new_book()
-        
+
     elif choice == '5':
         rate_book()
+
+    elif choice == '6':
+        '''added by iniej'''
+        sort_list()
+
+    elif choice == '7':
+        search_list()
+
+
 
     elif choice == 'q':
         quit()
@@ -55,6 +65,35 @@ def new_book():
     datastore.add_book(new_book)
     ui.message('Book added: ' + str(new_book))
 
+def sort_list():
+
+    '''sort the books'''
+    allBooks = datastore.get_books()
+    sortBooksByTitle = sorted(allBooks, key = lambda book: book.title)
+    sortbooksByAuthor = sorted(allBooks, key = lambda book: book.author)
+    sortBy = int(input('Enter 1 to sort by title and 2 to sort by auther: '))
+    while True:
+        if(sortBy == 1):
+            ui.show_list(sortBooksByTitle)
+            break
+        elif(sortBy == 2):
+            ui.show_list(sortbooksByAuthor)
+            break
+        else:
+            print('The entry was incorrect.')
+            sortBy = int(input('Enter the correct options: '))
+
+
+def search_list():
+    '''Search for a book'''
+    all_search = datastore.get_books()
+    search = input('Enter a title ')
+    found = filter(lambda x : x[1] == search, book.title)
+
+    #se = book.title
+    #if search in all_search:
+    ui.show_list(found)
+
 
 def quit():
     '''Perform shutdown tasks'''
@@ -68,7 +107,7 @@ def rate_a_book():
 
 def main():
 
-    datastore.setup()
+
 
     quit = 'q'
     choice = None

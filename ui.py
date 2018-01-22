@@ -11,7 +11,10 @@ def display_menu_get_choice():
         3. Mark a book as read
         4. Add book to wishlist
         5. Rate a read book
+        6. Sort the books (wishlist)
+        7. Search books
         q. Quit
+
     ''')
 
     choice = input('Enter your selection: ')
