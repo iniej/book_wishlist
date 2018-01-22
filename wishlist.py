@@ -86,13 +86,24 @@ def sort_list():
 
 def search_list():
     '''Search for a book'''
+    #search = str(input('Enter a title '))
     all_search = datastore.get_books()
-    search = input('Enter a title ')
-    found = filter(lambda x : x[1] == search, book.title)
 
-    #se = book.title
-    #if search in all_search:
-    ui.show_list(found)
+    for book in all_search:
+        if(search == book.title):
+            ui.show_list(book)
+        else:
+            notFound = ('book not found.')
+            ui.show_list(notFound)
+
+
+
+
+
+def rate_book():
+    rate_book = ui.rate_a_book()
+    datastore.add_rate(rate_book)
+    ui.message('Rating added: ' + str(rate_book))
 
 
 def quit():
@@ -100,10 +111,7 @@ def quit():
     datastore.shutdown()
     ui.message('Bye!')
 
-def rate_a_book():
-    rating = int(input("Rate the title: "))
-    score = rating.append(title)
-    return score
+
 
 def main():
 

@@ -58,6 +58,10 @@ def get_new_book_info():
     author = input('Enter author: ')
     return Book(title, author)
 
+def rate_a_book():
+    rating = int(input("Rate the title: "))
+    score = rating
+    return (score)
 
 def message(msg):
     '''Display a message to the user'''
