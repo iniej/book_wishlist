@@ -29,7 +29,8 @@ def handle_choice(choice):
     elif choice == '7':
         search_list()
 
-
+    elif choice == '8':
+        delete_book()
 
     elif choice == 'q':
         quit()
@@ -85,17 +86,28 @@ def sort_list():
 
 def search_list():
     '''Search for a book'''
-    #search = str(input('Enter a title '))
+    search = (input('Enter a title '))
     all_search = datastore.get_books()
+    wanted_books =[book for book in all_search if book.title == search ]
 
-    for book in all_search:
-        if(search == book.title):
-            ui.show_list(book)
-        else:
-            notFound = ('book not found.')
-            ui.show_list(notFound)
+    if len(wanted_books) == 0:
+        print('book not found')
+    else:
+        for g in wanted_books:
+            print(g)
 
+def delete_book():
+    '''Search for a book'''
+    search = (input('Enter a title '))
+    all_search = datastore.get_books()
+    wanted_books =[book for book in all_search if book.title == search ]
 
+    if len(wanted_books) == 0:
+        print('book not found')
+    else:
+        for g in wanted_books:
+            ui.message('Book deleted: ' + str(g))
+            wanted_books.remove(g)
 
 
 

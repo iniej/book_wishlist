@@ -13,6 +13,7 @@ def display_menu_get_choice():
         5. Rate a read book
         6. Sort the books (wishlist)
         7. Search books
+        8. Delete book
         q. Quit
 
     ''')
